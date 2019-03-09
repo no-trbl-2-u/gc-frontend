@@ -1,0 +1,8 @@
+body {
+  background-color: rgb(30, 30, 30);
+}
+
+.inner-Header {
+  background-color: blue;
+  /* z-index: 1; */
+}

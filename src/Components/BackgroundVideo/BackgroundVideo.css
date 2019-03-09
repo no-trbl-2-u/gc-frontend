@@ -1,0 +1,12 @@
+.BackgroundVideo {
+  opacity: 0.8;
+  position: relative;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -20;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+}
