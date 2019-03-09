@@ -2,6 +2,7 @@ import React from 'react';
 
 // Pages
 import LandingPage from '../Pages/LandingPage'
+import HomePageLayout from '../Pages/HomePageLayout'
 
 // TODO: INSTALL-CMD $ npm i @reach/router --save
 
@@ -9,7 +10,8 @@ import LandingPage from '../Pages/LandingPage'
 
 const App = () => (
   <section className="App-container">
-    <LandingPage />
+    {/* <LandingPage /> */}
+    <HomePageLayout />
   </section>
 )
 
