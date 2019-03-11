@@ -1,0 +1,23 @@
+.ScoreEntry-Header {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+}
+
+.ScoreEntryForm-Container {
+  background-color: rgb(66, 60, 85);
+
+  border-radius: 50px;
+  margin: auto;
+  width: 60%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ScoreEntryForm-Container input {
+  flex: 1;
+  height: 10vh;
+  font-size: 6vh;
+  margin: 30px;
+}

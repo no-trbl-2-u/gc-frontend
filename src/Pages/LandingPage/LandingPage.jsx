@@ -3,7 +3,6 @@ import React from 'react'
 import { Segment, Container, Header } from 'semantic-ui-react'
 
 // Components
-import TopNavbar from '../../Components/TopNavbar/TopNavbar'
 import BackgroundVideo from '../../Components/BackgroundVideo/BackgroundVideo'
 
 import './LandingPage.css'
@@ -17,8 +16,6 @@ import './LandingPage.css'
 const LandingPage = props => {
   return (
     <section className="LandingPage-Container">
-
-      <TopNavbar />
 
       <section className="Top-Container">
         <h1 className="top-Header">Before</h1>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
+import { Link } from '@reach/router'
 import './TopNavbar.css'
+
 
 const TopNavbar = props => {
 
@@ -12,7 +14,6 @@ const TopNavbar = props => {
   // handleNavbarClick :: Event -> State Change (Navbar, App)
   const handleNavbarClick = (event, { name }) => {
     setActiveItem(name)
-    // TODO: Handle Routing
   }
 
 
@@ -25,14 +26,28 @@ const TopNavbar = props => {
       borderless
     >
       {/* Home */}
-      <Menu.Item
-        name='Home'
-        active={ activeItem === 'Home' }
-        onClick={ handleNavbarClick }
-      >Home
-      </Menu.Item>
-      
-      {/* Login | Register */}
+      <Link to="/">
+        <Menu.Item
+          name='Home'
+          active={ activeItem === 'Home' }
+          onClick={ handleNavbarClick }
+        >Home
+        </Menu.Item>
+      </Link>
+
+      {/* Score Entry */}
+      <Link to="/addEntry">
+        <Menu.Item
+          name='Enter Score'
+          active={ activeItem === 'EnterScore' }
+          onClick={ handleNavbarClick }
+        >
+        </Menu.Item>
+      </Link>
+
+
+      {/* TODO: Add <Link />*/}
+      {/* Login | Register  */}
       <Menu.Menu position="right">
         <Menu.Item
           name='Login'

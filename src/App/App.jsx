@@ -1,16 +1,21 @@
 import React from 'react'
+import { Router } from '@reach/router'
 import './App.css'
+
+// Persistent Components
+import TopNavbar from '../Components/TopNavbar/TopNavbar'
 
 // Pages
 import LandingPage from '../Pages/LandingPage/LandingPage'
-
-// TODO: INSTALL-CMD $ npm i @reach/router --save
-
-// TODO: Configure <Router /> -> CONSIDER: TopNavBar Inside or Outside 
+import ScoreEntryPage from '../Pages/ScoreEntryPage'
 
 const App = () => (
   <section className="App-container">
-    <LandingPage />
+    <TopNavbar />
+    <Router>
+      <LandingPage path="/" />
+      <ScoreEntryPage path="/addEntry" />
+    </Router>
   </section>
 )
 
