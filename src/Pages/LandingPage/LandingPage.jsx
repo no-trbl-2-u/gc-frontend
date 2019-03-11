@@ -1,16 +1,12 @@
 import React from 'react'
 // import { graphql } from 'react-apollo'
+import { Segment, Container, Header } from 'semantic-ui-react'
 
 // Components
-import TopNavbar from '../Components/TopNavbar'
-import BackgroundVideo from '../Components/BackgroundVideo/BackgroundVideo'
-import { Segment, Container, Header } from 'semantic-ui-react';
+import TopNavbar from '../../Components/TopNavbar/TopNavbar'
+import BackgroundVideo from '../../Components/BackgroundVideo/BackgroundVideo'
 
-import video from '../Components/BackgroundVideo/Live_Gameplay.mp4'
-
-const backgroundStyle = {
-  background: video
-}
+import './LandingPage.css'
 
 // TODO: Get the Header on top of the video.
 // TODO: Set up Top-Half Container
@@ -20,12 +16,10 @@ const backgroundStyle = {
 // LandingPage :: GraphQLResults -> JSX.Element
 const LandingPage = props => {
   return (
-    <section
-      style={ backgroundStyle }
-      className="LandingPage-Container"
-    >
+    <section className="LandingPage-Container">
+
       <TopNavbar />
-      
+
       <section className="Top-Container">
         <h1 className="top-Header">Before</h1>
         <BackgroundVideo />

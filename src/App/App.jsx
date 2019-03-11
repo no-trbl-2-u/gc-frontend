@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 
 // Pages
-import LandingPage from '../Pages/LandingPage'
+import LandingPage from '../Pages/LandingPage/LandingPage'
 
 // TODO: INSTALL-CMD $ npm i @reach/router --save
 

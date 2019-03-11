@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
-
+import './TopNavbar.css'
 
 const TopNavbar = props => {
 
@@ -20,7 +20,7 @@ const TopNavbar = props => {
   return(
     <Menu
       className="Menu-Container"
-      size="large"
+      size="massive"
       inverted
       borderless
     >
