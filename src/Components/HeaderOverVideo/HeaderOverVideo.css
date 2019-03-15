@@ -2,16 +2,27 @@
   width: 50%;
   margin-top: 400px;
   margin-left: 100px;
-  background-color: rgba(255, 255, 255, 0.05);
-  box-shadow:  -4px -4px 16px black;
+  background-color: rgba(255, 255, 255, 0.00);
+  /* box-shadow:  -4px -4px 16px black; */
   /* box-shadow: inset 4px 4px 16px black; */
-  padding: 25px;
+  text-shadow: 2px 2px 2px black;
+  padding: 20px;
   border-radius: 25px;
 }
 
 
 .HeaderOverVideo-Container h1 {
+  font-size: 48px;
+  width: 100%;
+
+  margin: auto;
+  color: white;
+}
+
+.HeaderOverVideo-Container h2 {
+  text-align: center;
+  padding-top: 8px;
   width: 100%;
   margin: auto;
-  /* background-color: red; */
+  color: white;
 }

@@ -3,8 +3,9 @@
   position: absolute;
   /* margin-top: -130px; */
   top: 0px;
-  max-height: 725px;
-  height: auto;
+  min-height: 600px;
+  /* max-height: 800px; */
+  height: 100%;
   width: 100%;
   z-index: -20;
 }
