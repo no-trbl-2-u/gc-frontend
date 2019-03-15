@@ -1,0 +1,17 @@
+.HeaderOverVideo-Container {
+  width: 50%;
+  margin-top: 400px;
+  margin-left: 100px;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow:  -4px -4px 16px black;
+  /* box-shadow: inset 4px 4px 16px black; */
+  padding: 25px;
+  border-radius: 25px;
+}
+
+
+.HeaderOverVideo-Container h1 {
+  width: 100%;
+  margin: auto;
+  /* background-color: red; */
+}

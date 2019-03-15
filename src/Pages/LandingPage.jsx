@@ -1,15 +1,14 @@
 import React from 'react'
-// import { graphql } from 'react-apollo'
 import { Segment, Container, Header } from 'semantic-ui-react'
 
 // Components
-import BackgroundVideo from '../../Components/BackgroundVideo/BackgroundVideo'
+import BackgroundVideo from '../Components/BackgroundVideo/BackgroundVideo'
 
-import './LandingPage.css'
+import LandingPageBottomContainer from '../Containers/LandingPageBottom/LandingPageBottomContainer'
+import HeaderOverVideo from '../Components/HeaderOverVideo/HeaderOverVideo';
 
-// TODO: Get the Header on top of the video.
 // TODO: Set up Top-Half Container
-// TODO: Set up Bottom-Half Container -> w/ Links to Outside World
+// TODO: Set up Links to Outside World in Bottom
 // TODO: *OPTIONAL* Consider a Footer
 
 // LandingPage :: GraphQLResults -> JSX.Element
@@ -18,14 +17,11 @@ const LandingPage = props => {
     <section className="LandingPage-Container">
 
       <section className="Top-Container">
-        <h1 className="top-Header">Before</h1>
+        <HeaderOverVideo />
         <BackgroundVideo />
-        <h1 className="inner-Header">Inner</h1>
       </section>
 
-      <section className="Bottom-Container">
-        <h1 className="bottom-Header">Outer</h1>
-      </section>
+      <LandingPageBottomContainer />
       
     </section>
   )

@@ -6,7 +6,7 @@ import './App.css'
 import TopNavbar from '../Components/TopNavbar/TopNavbar'
 
 // Pages
-import LandingPage from '../Pages/LandingPage/LandingPage'
+import LandingPage from '../Pages/LandingPage'
 import ScoreEntryPage from '../Pages/ScoreEntryPage'
 
 const App = () => (

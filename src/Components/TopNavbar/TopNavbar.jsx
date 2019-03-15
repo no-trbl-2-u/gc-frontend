@@ -20,10 +20,12 @@ const TopNavbar = props => {
   // ####################     JSX     ####################
   return(
     <Menu
-      className="Menu-Container"
+      className="TopNavbar-Container"
       size="massive"
       inverted
       borderless
+      color="black"
+      
     >
       {/* Home */}
       <Link to="/">

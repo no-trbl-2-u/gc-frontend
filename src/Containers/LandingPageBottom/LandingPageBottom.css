@@ -1,0 +1,9 @@
+.Bottom-Container {
+  background-color: white;
+  margin-top: 80px;
+  padding-bottom: 100%;
+
+  /* Uncomment if you want Content to swallow TopNav */
+  /* position: relative; */
+
+}

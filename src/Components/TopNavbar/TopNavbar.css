@@ -1,3 +1,9 @@
-.Menu-Container {
-  opacity: 0.8;
+.TopNavbar-Container {
+  position: sticky;
+  top: 0;
+  opacity: 0.95;
+}
+
+a .item {
+  height: 100%;
 }
