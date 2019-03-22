@@ -3,15 +3,11 @@ import React from 'react'
 
 // Components
 import BackgroundVideo from '../Components/BackgroundVideo/BackgroundVideo'
-
 import LandingPageBottomContainer from '../Containers/LandingPageBottom/LandingPageBottomContainer'
 import HeaderOverVideo from '../Components/HeaderOverVideo/HeaderOverVideo';
 
-// TODO: Set up Top-Half Container
-// TODO: Set up Links to Outside World in Bottom
-// TODO: *OPTIONAL* Consider a Footer
+// TODO: *OPTIONAL* Consider a Footer w/ Links to Outside World
 
-// LandingPage :: GraphQLResults -> JSX.Element
 const LandingPage = props => {
   return (
     <section className="LandingPage-Container">
@@ -27,5 +23,4 @@ const LandingPage = props => {
   )
 }
 
-// export default graphql(ACCOUNTS)(LandingPage)
 export default LandingPage

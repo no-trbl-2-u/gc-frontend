@@ -1,11 +1,12 @@
 import { gql } from 'apollo-boost'
 
-const ACCOUNTS = gql`
+const getAccounts = gql`
   {
     accounts {
       username,
+      email
     }
   }
 `
 
-export default ACCOUNTS
+export default getAccounts
