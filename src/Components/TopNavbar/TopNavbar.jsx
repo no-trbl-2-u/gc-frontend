@@ -4,6 +4,8 @@ import { Link } from '@reach/router'
 import './TopNavbar.css'
 
 
+// TODO: <Menu as="Link" />
+
 const TopNavbar = props => {
 
   // #####################   STATE   #####################
@@ -28,27 +30,27 @@ const TopNavbar = props => {
       
     >
       {/* Home */}
-      <Link to="/">
-        <Menu.Item
-          name='Home'
-          active={ activeItem === 'Home' }
-          onClick={ handleNavbarClick }
-        >Home
-        </Menu.Item>
-      </Link>
+      <Menu.Item
+        as={ Link }
+        to="/"
+        name='Home'
+        active={ activeItem === 'Home' }
+        onClick={ handleNavbarClick }
+      >Home
+      </Menu.Item>
+
+{/* <Menu.Item as={Link} to='/home' /> */}
 
       {/* Score Entry */}
-      <Link to="/addEntry">
-        <Menu.Item
-          name='Enter Score'
-          active={ activeItem === 'EnterScore' }
-          onClick={ handleNavbarClick }
-        >
-        </Menu.Item>
-      </Link>
+      <Menu.Item
+        as={ Link }
+        to="/addEntry"
+        name='Enter Score'
+        active={ activeItem === 'EnterScore' }
+        onClick={ handleNavbarClick }
+      >
+      </Menu.Item>
 
-
-      {/* TODO: Add <Link />*/}
       {/* Login | Register  */}
       <Menu.Menu position="right">
         <Menu.Item
@@ -60,6 +62,8 @@ const TopNavbar = props => {
         </Menu.Item>
 
         <Menu.Item
+          as={ Link }
+          to="/register"
           name='Register'
           active={ activeItem === 'Register' }
           onClick={ handleNavbarClick }

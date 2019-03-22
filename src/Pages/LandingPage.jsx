@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Container, Header } from 'semantic-ui-react'
+// import { Segment, Container, Header } from 'semantic-ui-react'
 
 // Components
 import BackgroundVideo from '../Components/BackgroundVideo/BackgroundVideo'
