@@ -3,12 +3,10 @@ import { graphql, compose } from 'react-apollo'
 import validateForm from '../../Util/validateForm'
 import './RegistrationForm.css'
 
-// TEST MUTATION
 import addAccountMutation from '../../Queries/addAccount';
 import getAccounts from '../../Queries/getAccounts';
 
-// {getAccounts, addAccountMutation}
-const RegistrationForm = (props) => {
+const RegistrationForm = ({getAccounts, addAccountMutation}) => {
   // STATE
   const [username, setUsername]                 = useState("")
   const [password, setPassword]                 = useState("")
@@ -22,30 +20,42 @@ const RegistrationForm = (props) => {
   const handleEmailChange    = ({target}) => setEmail(target.value)
 
   const handleSubmit = e => {
+    // Prevent redirect   
+    e.preventDefault()
 
     // Validate Form
     const isValid = validateForm(username, password, confirmPassword, email)
-    
-    // Prevent Submit if not valid
-    if(!isValid) e.preventDefault()
+
+    // TODO: Hash password
+    const hashedPassword = "!" + password + "!"
 
     // Send Mutation Query
+    if(isValid){
+      addAccountMutation({
+        variables: {
+          username,
+          password,
+          email
+        }
+      })
+    
+      alert("Account Registered")
 
-    // TODO: Add Variables to query in ../../queries    
-    // TODO: Hash Password
-    // props.addAccountMutation(username, password, email)
+      // redirect Home
+      window.location.pathname = "/"
+    }
   }
 
   // HOOKS
   useEffect(() => {
     // Show all accounts
-    // if(!props.getAccounts.loading){
-    //   props.getAccounts.accounts.map(ea => console.log(ea.username))
-    // }
-    console.log("Mounted")
-  }, [])
+    if(!getAccounts.loading){
+      getAccounts.accounts.map(
+        ea => console.log("username:", ea.username + ",","password:", ea.password)
+      )
+    }
+  })
 
-  // TODO: form action="url_to_desired_page"
   return (
     <>
       <h1 className="RegistrationForm-Header">Registration</h1>
@@ -81,7 +91,7 @@ const RegistrationForm = (props) => {
 
         {/* Email */}
         <input 
-          type="email" 
+          type="text" 
           name="email"
           value={ email }
           onChange={ handleEmailChange }

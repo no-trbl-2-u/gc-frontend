@@ -1,3 +1,5 @@
+const EMAILregEx = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
+
 export default function validateForm(username, password, confirmPassword, email){
   // Username exists?
   if(!username) {
@@ -20,6 +22,12 @@ export default function validateForm(username, password, confirmPassword, email)
   // Email exists?
   if(!email) {
     alert("Please Enter Email")
+    return false
+  }
+
+  // Email Valid?
+  if(email.search(EMAILregEx) === -1){
+    alert("Please Enter Valid Email")
     return false
   }
 
