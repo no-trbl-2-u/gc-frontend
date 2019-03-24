@@ -18,16 +18,12 @@ const RegistrationForm = ({getAccounts, addAccountMutation}) => {
   const handlePasswordChange = ({target}) => setPassword(target.value)
   const handleConfPassChange = ({target}) => setConfirmedPassword(target.value)
   const handleEmailChange    = ({target}) => setEmail(target.value)
-
   const handleSubmit = e => {
     // Prevent redirect   
     e.preventDefault()
 
     // Validate Form
     const isValid = validateForm(username, password, confirmPassword, email)
-
-    // TODO: Hash password
-    const hashedPassword = "!" + password + "!"
 
     // Send Mutation Query
     if(isValid){
@@ -46,14 +42,27 @@ const RegistrationForm = ({getAccounts, addAccountMutation}) => {
     }
   }
 
+  // TODO: Trigger CSS effect or popUp
+  const checkUsername = () => {
+    const matchingUsernames = getAccounts.accounts.filter(ea => ea.username === username.toLowerCase())
+    
+    if(matchingUsernames.length){
+      alert("Username Already Taken")
+    }
+
+    return matchingUsernames.length
+      ? true
+      : false
+  }
+
   // HOOKS
   useEffect(() => {
     // Show all accounts
-    if(!getAccounts.loading){
-      getAccounts.accounts.map(
-        ea => console.log("username:", ea.username + ",","password:", ea.password)
-      )
-    }
+    // if(!getAccounts.loading){
+    //   getAccounts.accounts.map(
+    //     ea => console.log("username:", ea.username + ",","password:", ea.password)
+    //   )
+    // }
   })
 
   return (
@@ -66,7 +75,7 @@ const RegistrationForm = ({getAccounts, addAccountMutation}) => {
           name="username"
           value={ username }
           onChange={ handleUsernameChange }
-          onBlur={() => {}}
+          onBlur={ checkUsername }
           placeholder="Enter Desired Username"
           autoComplete="off"
         />
