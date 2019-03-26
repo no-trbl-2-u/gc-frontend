@@ -63,7 +63,7 @@ const RegistrationForm = ({getAccounts, addAccountMutation}) => {
     //     ea => console.log("username:", ea.username + ",","password:", ea.password)
     //   )
     // }
-  })
+  }, [])
 
   return (
     <>
