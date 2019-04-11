@@ -5,7 +5,6 @@ import { ApolloProvider } from 'react-apollo'
 import 'semantic-ui-css/semantic.min.css'
 import App from './App/App';
 
-
 // TODO: Prod vs. Dev
 const client = new ApolloClient({
   uri: 'https://gc-backend.herokuapp.com/gql'

@@ -9,6 +9,7 @@ import TopNavbar from '../Components/TopNavbar/TopNavbar'
 import LandingPage from '../Pages/LandingPage'
 import ScoreEntryPage from '../Pages/ScoreEntryPage'
 import RegistrationPage from '../Pages/RegistrationPage';
+import LoginPage from '../Pages/LoginPage'
 
 const App = () => (
   <section className="App-container">
@@ -17,6 +18,7 @@ const App = () => (
       <LandingPage path="/" />
       <ScoreEntryPage path="/addEntry" />
       <RegistrationPage path="/register" />
+      <LoginPage path="/login"/>
     </Router>
   </section>
 )

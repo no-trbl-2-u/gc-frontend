@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
 import { Link } from '@reach/router'
 import './TopNavbar.css'
@@ -39,8 +39,6 @@ const TopNavbar = props => {
       >Home
       </Menu.Item>
 
-{/* <Menu.Item as={Link} to='/home' /> */}
-
       {/* Score Entry */}
       <Menu.Item
         as={ Link }
@@ -54,6 +52,8 @@ const TopNavbar = props => {
       {/* Login | Register  */}
       <Menu.Menu position="right">
         <Menu.Item
+          as={ Link }
+          to="/login"
           name='Login'
           active={ activeItem === 'Login' }
           onClick={ handleNavbarClick }
