@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { graphql, compose } from 'react-apollo'
 import './LoginForm.css'
 
-import getAccounts from '../../Queries/getAccounts';
 import getAccountAuthorization from '../../Queries/authorizeAccount'
 
-const LoginForm = ({getAccounts, getAuth}) => {
+const LoginForm = ({getAuth}) => {
   // STATE
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -17,8 +16,9 @@ const LoginForm = ({getAccounts, getAuth}) => {
   const handleSubmit = e => {
     // Prevent redirect   
     e.preventDefault()
-    console.log(getAuth("admin", "admin"))
-    // const user = getAccounts.accounts.find(ea => ea.username === username)
+
+    console.log(getAuth)
+    
     // window.location.pathname = "/"
   }
   
@@ -59,6 +59,5 @@ const LoginForm = ({getAccounts, getAuth}) => {
 }
 
 export default compose(
-  graphql(getAccounts, {name: 'getAccounts'}),
-  graphql(getAccountAuthorization, {name: 'getAuth'})
+  graphql(getAccountAuthorization, {name: 'getAccountLogin'})
 )(LoginForm)
