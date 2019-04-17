@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 
 
-const getAccountAuthorization = gql`
-  query($username:String, $password:String) {
+const LOGIN_MUTATION = gql`
+  mutation ($username:String!, $password:String!) {
     accountLogin(
       username: $username,
       password: $password,
@@ -13,4 +13,4 @@ const getAccountAuthorization = gql`
   }
 `
 
-export default getAccountAuthorization
+export default LOGIN_MUTATION

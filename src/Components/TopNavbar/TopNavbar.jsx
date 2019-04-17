@@ -6,7 +6,7 @@ import './TopNavbar.css'
 
 // TODO: <Menu as="Link" />
 
-const TopNavbar = props => {
+const TopNavbar = ({  token }) => {
 
   // #####################   STATE   #####################
   const [activeItem, setActiveItem] = useState('Home')
