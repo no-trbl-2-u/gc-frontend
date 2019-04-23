@@ -4,21 +4,18 @@ import { Link } from '@reach/router'
 import './TopNavbar.css'
 
 
-
-const TopNavbar = ({  token }) => {
-
-  // #####################   STATE   #####################
+const TopNavbar = ({ handleToken, isLoggedIn }) => {
   const [activeItem, setActiveItem] = useState('Home')
 
-  // ###################   FUNCTIONS   ###################
-  
   // handleNavbarClick :: Event -> State Change (Navbar, App)
   const handleNavbarClick = (event, { name }) => {
     setActiveItem(name)
+    if(name === "Logout"){
+      handleToken("LOGOUT")
+    }
   }
 
-
-  // ####################     JSX     ####################
+  // JSX
   return(
     <Menu
       className="TopNavbar-Container"
@@ -26,8 +23,8 @@ const TopNavbar = ({  token }) => {
       inverted
       borderless
       color="black"
-      
     >
+
       {/* Home */}
       <Menu.Item
         as={ Link }
@@ -37,20 +34,8 @@ const TopNavbar = ({  token }) => {
         onClick={ handleNavbarClick }
       >Home
       </Menu.Item>
-
-      {/* Score Entry */}
-    {/* 
-      <Menu.Item
-        as={ Link }
-        to="/addEntry"
-        name='Enter Score'
-        active={ activeItem === 'EnterScore' }
-        onClick={ handleNavbarClick }
-      >
-      </Menu.Item>
-    */}
       
-      {/* Login | Register  */}
+      {/* Login */}
       <Menu.Menu position="right">
         <Menu.Item
           as={ Link }
@@ -62,6 +47,7 @@ const TopNavbar = ({  token }) => {
           <Button>Log-In</Button>
         </Menu.Item>
 
+        {/* Register */}
         <Menu.Item
           as={ Link }
           to="/register"
@@ -72,6 +58,18 @@ const TopNavbar = ({  token }) => {
         >
           <Button>Register</Button>
         </Menu.Item>
+
+        {/* Logout */}
+        <Menu.Item
+          as={ Link }
+          to="/"
+          name='Logout'
+          active={ activeItem === 'Logout' }
+          onClick={ handleNavbarClick }
+          position="right"
+        >
+        </Menu.Item>
+    
       </Menu.Menu>
 
     </Menu>

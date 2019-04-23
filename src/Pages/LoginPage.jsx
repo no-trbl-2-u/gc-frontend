@@ -1,10 +1,10 @@
 import React from 'react'
 import LoginForm from '../Components/LoginForm/LoginForm';
 
-function LoginPage (props) {
+function LoginPage ({handleToken}) {
   return (
     <section>
-      <LoginForm/>
+      <LoginForm handleToken={ handleToken }/>
     </section>
   )
 }

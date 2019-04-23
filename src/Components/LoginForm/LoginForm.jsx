@@ -4,7 +4,7 @@ import './LoginForm.css'
 
 import LOGIN_MUTATION from '../../Queries/ACCOUNT_MUTATION'
 
-const LoginForm = ({LOGIN}) => {
+function LoginForm ({LOGIN, handleToken}) {
   // STATE
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -18,7 +18,8 @@ const LoginForm = ({LOGIN}) => {
     e.preventDefault()
 
     LOGIN({variables:{username, password}})
-      .then(({data}) => localStorage.setItem('AUTH_TOKEN', data.accountLogin.token))
+      // .then(({data}) => localStorage.setItem('AUTH_TOKEN', data.accountLogin.token))
+      .then(({data}) => handleToken("LOGIN", data.accountLogin.token))
       .then(_ => window.location.pathname = '/')    
   }
   

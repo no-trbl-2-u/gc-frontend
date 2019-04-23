@@ -12,29 +12,71 @@ import RegistrationPage from '../Pages/RegistrationPage';
 import LoginPage from '../Pages/LoginPage'
 
 const App = () => {
+
+  // Login TOKEN
+  const TOKEN = localStorage.getItem('AUTH_TOKEN')
+  ? localStorage.getItem('AUTH_TOKEN')
+  : null
+
   // STATE
   const [AUTH_TOKEN, SET_AUTH_TOKEN] = useState("")
+  const [isLoggedIn, setIsLoggedIn]  = useState(false)
 
-  // EFFECTS
+  // FUNCTIONS
+
+  // handleToken :: (action<"LOGIN" | "LOGOUT">, token<Empty | JWT>) -> State Change
+  const handleToken = (action, token) => {
+    switch(action){
+      case "LOGOUT":
+        if(localStorage.getItem('AUTH_TOKEN')) {
+          localStorage.removeItem('AUTH_TOKEN')
+          setIsLoggedIn(false)
+          SET_AUTH_TOKEN("")
+        }else{
+          console.log("Already logged out")
+        }
+        break;
+
+      case "LOGIN":
+        if(!localStorage.getItem('AUTH_TOKEN')) {
+          localStorage.setItem('AUTH_TOKEN', token)
+          setIsLoggedIn(true)
+          SET_AUTH_TOKEN(localStorage.getItem('AUTH_TOKEN'))
+        }else{
+          console.log("Already Logged in")
+        }
+        break;
+
+      default:
+        break
+    }
+  }
+
+  // Effects
+
+  // Checks if token exists, sets it to state
   useEffect(() => {
-    const TOKEN = localStorage.getItem('AUTH_TOKEN')
-      ? localStorage.getItem('AUTH_TOKEN')
-      : null
-    
+    console.log("Current Token: ", AUTH_TOKEN)
     if(TOKEN !== null) {
       SET_AUTH_TOKEN(TOKEN)
     }
-
   }, [AUTH_TOKEN])
 
+  // JSX (Routes)
   return (
     <section className="App-container">
-      <TopNavbar token={ AUTH_TOKEN } />
+      <TopNavbar
+        isLoggedIn={ isLoggedIn }
+        handleToken={ handleToken }
+      />
       <Router>
         <LandingPage path="/" />
         <ScoreEntryPage path="/addEntry" />
         <RegistrationPage path="/register" />
-        <LoginPage path="/login"/>
+        <LoginPage 
+          path="/login" 
+          handleToken={ handleToken }
+        />
       </Router>
     </section>
   )
