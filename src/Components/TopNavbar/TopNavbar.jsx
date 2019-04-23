@@ -5,9 +5,10 @@ import './TopNavbar.css'
 
 
 const TopNavbar = ({ handleToken, isLoggedIn }) => {
+  // State
   const [activeItem, setActiveItem] = useState('Home')
 
-  // handleNavbarClick :: Event -> State Change (Navbar, App)
+  // Handlers
   const handleNavbarClick = (event, { name }) => {
     setActiveItem(name)
     if(name === "Logout"){
@@ -15,28 +16,27 @@ const TopNavbar = ({ handleToken, isLoggedIn }) => {
     }
   }
 
-  // JSX
-  return(
-    <Menu
-      className="TopNavbar-Container"
-      size="massive"
-      inverted
-      borderless
-      color="black"
-    >
-
-      {/* Home */}
-      <Menu.Item
-        as={ Link }
-        to="/"
-        name='Home'
-        active={ activeItem === 'Home' }
-        onClick={ handleNavbarClick }
-      >Home
-      </Menu.Item>
-      
-      {/* Login */}
+  // Templates
+  const loggedInTabs = () => {
+    return (
       <Menu.Menu position="right">
+        {/* Logout */}
+        <Menu.Item
+          as={ Link }
+          to="/"
+          name='Logout'
+          active={ activeItem === 'Logout' }
+          onClick={ handleNavbarClick }
+          position="right"
+        >
+        </Menu.Item>
+      </Menu.Menu>
+    )
+  }
+  const loggedOutTabs = () => {
+    return (
+        <Menu.Menu position="right">
+        {/* Login */}
         <Menu.Item
           as={ Link }
           to="/login"
@@ -58,19 +58,35 @@ const TopNavbar = ({ handleToken, isLoggedIn }) => {
         >
           <Button>Register</Button>
         </Menu.Item>
-
-        {/* Logout */}
-        <Menu.Item
-          as={ Link }
-          to="/"
-          name='Logout'
-          active={ activeItem === 'Logout' }
-          onClick={ handleNavbarClick }
-          position="right"
-        >
-        </Menu.Item>
-    
       </Menu.Menu>
+    )
+  }
+
+  // Root JSX
+  return (
+    <Menu
+      as="section"
+      className="TopNavbar-Container"
+      size="massive"
+      inverted
+      borderless
+      color="black"
+    >
+      {/* Home */}
+      <Menu.Item
+        as={ Link }
+        to="/"
+        name='Home'
+        active={ activeItem === 'Home' }
+        onClick={ handleNavbarClick }
+      >Home
+      </Menu.Item>
+
+      {
+        isLoggedIn
+          ? loggedInTabs()
+          : loggedOutTabs()
+      }
 
     </Menu>
   )

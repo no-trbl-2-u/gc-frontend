@@ -18,9 +18,8 @@ function LoginForm ({LOGIN, handleToken}) {
     e.preventDefault()
 
     LOGIN({variables:{username, password}})
-      // .then(({data}) => localStorage.setItem('AUTH_TOKEN', data.accountLogin.token))
       .then(({data}) => handleToken("LOGIN", data.accountLogin.token))
-      .then(_ => window.location.pathname = '/')    
+      .then(_ => window.location.pathname = '/')
   }
   
 
@@ -45,6 +44,7 @@ function LoginForm ({LOGIN, handleToken}) {
           value={ password }
           onChange={ handlePasswordChange }
           placeholder="Enter Password"
+          autoComplete="off"
         />
 
         {/* Submit-Button */}

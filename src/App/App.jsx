@@ -31,7 +31,7 @@ const App = () => {
         if(localStorage.getItem('AUTH_TOKEN')) {
           localStorage.removeItem('AUTH_TOKEN')
           setIsLoggedIn(false)
-          SET_AUTH_TOKEN("")
+          // SET_AUTH_TOKEN("")
         }else{
           console.log("Already logged out")
         }
@@ -40,8 +40,8 @@ const App = () => {
       case "LOGIN":
         if(!localStorage.getItem('AUTH_TOKEN')) {
           localStorage.setItem('AUTH_TOKEN', token)
-          setIsLoggedIn(true)
-          SET_AUTH_TOKEN(localStorage.getItem('AUTH_TOKEN'))
+          // setIsLoggedIn(true)
+          // SET_AUTH_TOKEN(localStorage.getItem('AUTH_TOKEN'))
         }else{
           console.log("Already Logged in")
         }
@@ -56,9 +56,10 @@ const App = () => {
 
   // Checks if token exists, sets it to state
   useEffect(() => {
-    console.log("Current Token: ", AUTH_TOKEN)
     if(TOKEN !== null) {
       SET_AUTH_TOKEN(TOKEN)
+      setIsLoggedIn(true)
+      console.log("Triggered")
     }
   }, [AUTH_TOKEN])
 
