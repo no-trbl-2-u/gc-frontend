@@ -14,7 +14,7 @@
 .RegistrationForm-Container {
   background-color: rgb(66, 60, 85);
 
-  border-radius: 50px;
+  /* border-radius: 50px; */
   margin: auto;
   margin-top: 50px;
   padding: 20px;

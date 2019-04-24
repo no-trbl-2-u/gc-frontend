@@ -18,8 +18,14 @@ function LoginForm ({LOGIN, handleToken}) {
     e.preventDefault()
 
     LOGIN({variables:{username, password}})
-      .then(({data}) => handleToken("LOGIN", data.accountLogin.token))
-      .then(_ => window.location.pathname = '/')
+      .then(({data}) => {
+        if(data.accountLogin.token !== null) {
+          handleToken("LOGIN", data.accountLogin.token);
+          window.location.pathname = '/'
+        }else{
+          alert("Incorrect Login Information")
+        }
+      })
   }
   
 
